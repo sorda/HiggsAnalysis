@@ -1,0 +1,103 @@
+Creating DatasetManager with analysisName='TopPt', searchMode='80to1000', dataEra='Run2015'
+Setting                                             TT_ext cross section to 831.760000 pb 
+
+ *** Break *** segmentation violation
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+
+Thread 2 (Thread 0x7f892f086700 (LWP 13581)):
+#0  sem_wait () at ../nptl/sysdeps/unix/sysv/linux/x86_64/sem_wait.S:85
+#1  0x00000000004f4850 in ?? ()
+#2  0x000000000049968d in PyEval_EvalFrameEx ()
+#3  0x00000000004a1c9a in ?? ()
+#4  0x0000000000505f96 in PyObject_Call ()
+#5  0x000000000049b07a in PyEval_EvalFrameEx ()
+#6  0x0000000000499ef2 in PyEval_EvalFrameEx ()
+#7  0x0000000000499ef2 in PyEval_EvalFrameEx ()
+#8  0x00000000004a1c9a in ?? ()
+#9  0x00000000004dfe94 in ?? ()
+#10 0x00000000004dc9cb in PyEval_CallObjectWithKeywords ()
+#11 0x0000000000588b12 in ?? ()
+#12 0x00007f893c436182 in start_thread (arg=0x7f892f086700) at pthread_create.c:312
+#13 0x00007f893c16347d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:111
+
+Thread 1 (Thread 0x7f893c84e740 (LWP 13555)):
+#0  0x00007f893c129b99 in __libc_waitpid (pid=13584, stat_loc=stat_loc
+entry=0x7fff5aaf4d00, options=options
+entry=0) at ../sysdeps/unix/sysv/linux/waitpid.c:40
+#1  0x00007f893c0af2e2 in do_system (line=<optimized out>) at ../sysdeps/posix/system.c:148
+#2  0x00007f893a2fb5e3 in TUnixSystem::StackTrace() () from /home/laura/root/lib/libCore.so
+#3  0x00007f893a2fd20c in TUnixSystem::DispatchSignals(ESignals) () from /home/laura/root/lib/libCore.so
+#4  <signal handler called>
+#5  0x0000000004156d90 in ?? ()
+#6  0x00007f8939dfa049 in ROOT::delete_TDirectoryFile(void*) () from /home/laura/root/lib/libRIO.so
+#7  0x00007f893a2bf873 in TClass::Destructor(void*, bool) () from /home/laura/root/lib/libCore.so
+#8  0x00007f893a6b2faf in PyROOT::op_dealloc_nofree(PyROOT::ObjectProxy*) () from /home/laura/root/lib/libPyROOT.so
+#9  0x00007f893a6b3109 in PyROOT::(anonymous namespace)::op_dealloc(PyROOT::ObjectProxy*) () from /home/laura/root/lib/libPyROOT.so
+#10 0x00000000004f7148 in ?? ()
+#11 0x000000000055bb93 in ?? ()
+#12 0x00000000004a1cc4 in ?? ()
+#13 0x00000000004dfe94 in ?? ()
+#14 0x00000000004dca56 in PyEval_CallObjectWithKeywords ()
+#15 0x00000000004b99a9 in PyInstance_New ()
+#16 0x0000000000505f96 in PyObject_Call ()
+#17 0x000000000049b07a in PyEval_EvalFrameEx ()
+#18 0x00000000004a1c9a in ?? ()
+#19 0x0000000000505f96 in PyObject_Call ()
+#20 0x000000000049b07a in PyEval_EvalFrameEx ()
+#21 0x00000000004a1c9a in ?? ()
+#22 0x0000000000505f96 in PyObject_Call ()
+#23 0x000000000049b07a in PyEval_EvalFrameEx ()
+#24 0x00000000004a090c in PyEval_EvalCodeEx ()
+#25 0x000000000049ab45 in PyEval_EvalFrameEx ()
+#26 0x0000000000499ef2 in PyEval_EvalFrameEx ()
+#27 0x00000000004a1634 in ?? ()
+#28 0x000000000044e4a5 in PyRun_FileExFlags ()
+#29 0x000000000044ec9f in PyRun_SimpleFileExFlags ()
+#30 0x000000000044f904 in Py_Main ()
+#31 0x00007f893c08aec5 in __libc_start_main (main=0x44f9c2 <main>, argc=3, argv=0x7fff5aaf85e8, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fff5aaf85d8) at libc-start.c:287
+#32 0x0000000000578c4e in _start ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+If they do not help you then please submit a bug report at
+http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  0x0000000004156d90 in ?? ()
+#6  0x00007f8939dfa049 in ROOT::delete_TDirectoryFile(void*) () from /home/laura/root/lib/libRIO.so
+#7  0x00007f893a2bf873 in TClass::Destructor(void*, bool) () from /home/laura/root/lib/libCore.so
+#8  0x00007f893a6b2faf in PyROOT::op_dealloc_nofree(PyROOT::ObjectProxy*) () from /home/laura/root/lib/libPyROOT.so
+#9  0x00007f893a6b3109 in PyROOT::(anonymous namespace)::op_dealloc(PyROOT::ObjectProxy*) () from /home/laura/root/lib/libPyROOT.so
+#10 0x00000000004f7148 in ?? ()
+#11 0x000000000055bb93 in ?? ()
+#12 0x00000000004a1cc4 in ?? ()
+#13 0x00000000004dfe94 in ?? ()
+#14 0x00000000004dca56 in PyEval_CallObjectWithKeywords ()
+#15 0x00000000004b99a9 in PyInstance_New ()
+#16 0x0000000000505f96 in PyObject_Call ()
+#17 0x000000000049b07a in PyEval_EvalFrameEx ()
+#18 0x00000000004a1c9a in ?? ()
+#19 0x0000000000505f96 in PyObject_Call ()
+#20 0x000000000049b07a in PyEval_EvalFrameEx ()
+#21 0x00000000004a1c9a in ?? ()
+#22 0x0000000000505f96 in PyObject_Call ()
+#23 0x000000000049b07a in PyEval_EvalFrameEx ()
+#24 0x00000000004a090c in PyEval_EvalCodeEx ()
+#25 0x000000000049ab45 in PyEval_EvalFrameEx ()
+#26 0x0000000000499ef2 in PyEval_EvalFrameEx ()
+#27 0x00000000004a1634 in ?? ()
+#28 0x000000000044e4a5 in PyRun_FileExFlags ()
+#29 0x000000000044ec9f in PyRun_SimpleFileExFlags ()
+#30 0x000000000044f904 in Py_Main ()
+#31 0x00007f893c08aec5 in __libc_start_main (main=0x44f9c2 <main>, argc=3, argv=0x7fff5aaf85e8, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fff5aaf85d8) at libc-start.c:287
+#32 0x0000000000578c4e in _start ()
+===========================================================
+
